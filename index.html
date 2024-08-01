@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      /* ## Colors
+
+      ### Primary
+
+      - Red: hsl(0, 100%, 74%)
+      - Green: hsl(154, 59%, 51%)
+
+      ### Accent
+
+      - Blue: hsl(248, 32%, 49%)
+
+      ### Neutral
+
+      - Dark Blue: hsl(249, 10%, 26%)
+      - Grayish Blue: hsl(246, 25%, 77%)
+
+      ## Typography
+
+      ### Body Copy
+
+      - Font size: 16px
+
+      ### Font
+
+      - Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+      - Weights: 400, 500, 600, 700 */
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: hsl(0, 100%, 74%);
+        background-image: url(../images/bg-intro-desktop.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        font-size: 1.6rem;
+        color: white;
+        /* display: flex;
+          align-items: center;
+          justify-content: center; */
+        position: relative;
+      }
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        column-gap: 4.8rem;
+        justify-content: center;
+        margin: 5rem auto;
+        width: 80%;
+      }
+      /* .hero-text {
+          width: 90%;
+        } */
+      /* .hero-form{
+          width: 60%;
+        }  */
+      h1 {
+        color: white;
+        line-height: 1.1;
+        font-size: 4rem;
+      }
+
+      .try {
+        background-color: hsl(248, 32%, 49%);
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        font-size: 1.4rem;
+        padding: 2.4rem;
+        border-radius: 1.2rem;
+        text-align: center;
+        font-weight: 300;
+      }
+      .try span {
+        font-weight: 700;
+      }
+      .form-box {
+        background-color: white;
+        padding: 2.4rem;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.3);
+        /* width: 100%; */
+        border-radius: 1.2rem;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 1.2rem 2.4rem;
+        border-radius: 0.4rem;
+        box-sizing: border-box;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .not-empty {
+        border-radius: 0.4rem;
+        outline-color: hsl(249, 10%, 60%);
+        border: 1px solid hsl(246, 25%, 90%);
+      }
+      .empty {
+        border: 1.8px solid hsl(0, 100%, 74%);
+        border-radius: 0.4rem;
+      }
+      input::placeholder {
+        color: hsl(249, 10%, 60%);
+        font-weight: 500;
+        font-size: 1.6rem;
+      }
+
+      .email-box::placeholder {
+        color: hsl(0, 100%, 74%);
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+      .input-box {
+        position: relative;
+        margin-bottom: 2.4rem;
+      }
+      .input-box i,
+      .error {
+        position: absolute;
+      }
+
+      .input-box i {
+        color: hsl(0, 100%, 74%);
+        font-size: 0.8rem;
+        bottom: -1.6rem;
+        right: 0;
+      }
+      .error {
+        right: 1rem;
+        width: 2rem;
+        top: 1.1rem;
+      }
+      .error-email::placeholder {
+        color: hsl(0, 100%, 74%);
+        font-weight: 300;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: hsl(154, 59%, 51%);
+        box-shadow: 0 8px 10px rgba(56, 204, 140, 0.5);
+        border: 1px solid hsl(154, 59%, 51%);
+        border: none;
+        border-radius: 0.4rem;
+        color: #fff;
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+      }
+      button:hover {
+        background-color: #fff;
+        color: hsl(154, 59%, 51%);
+        border: 1px solid hsl(246, 25%, 90%);
+      }
+      button:focus {
+        background-color: hsl(154, 59%, 51%);
+        color: #fff;
+      }
+
+      .terms-services {
+        font-size: 1rem;
+        color: hsl(246, 25%, 77%);
+        text-align: center;
+      }
+      .terms-services a {
+        color: hsl(0, 100%, 74%);
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      /* MEDIA QUERY  */
+      /*(950PX  */
+      @media (max-width: 60rem) {
+        html {
+          font-size: 50%;
+        }
+      }
+      @media (max-width: 48rem) {
+        html {
+          font-size: 40%;
+        }
+      }
+      /* 600PX */
+      @media (max-width: 38rem) {
+        html {
+          font-size: 62.5%;
+        }
+        main {
+          grid-template-columns: 1fr;
+        }
+        body {
+          text-align: center;
+        }
+      }
+      /* 440PX */
+      @media (max-width: 28rem) {
+        body {
+          padding-right: 1.2rem;
+          padding-left: 1.2rem;
+        }
+        h1 {
+          font-size: 3.4rem;
+        }
+        main {
+          width: auto;
+        }
+        .try {
+          font-size: 1.2rem;
+          padding: 1.2rem 2.4rem;
+        }
+        input::placeholder {
+          font-size: 1.2rem;
+        }
+        button {
+          font-size: 1rem;
+          padding: 1.2rem;
+        }
+      }
+      /* 340PX */
+      @media (max-width: 22rem) {
+        h1 {
+          font-size: 2.8rem;
+        }
+        .hero-text p {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="hero-text">
+        <h1>Learn to code by watching others</h1>
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </div>
+      <div class="hero-form">
+        <p class="try">
+          <span>Try it free 7 days</span> then $20/mo. thereafter
+        </p>
+        <div class="form-box">
+          <div>
+            <div class="input-box">
+              <input
+                id="fname"
+                type="text"
+                placeholder=" First Name"
+                class="fname not-empty"
+                autocomplete="given-name"
+              />
+              <div class="error-box hidden">
+                <img class="error" src="images/icon-error.svg" alt="" />
+                <i class="error-p">First Name cannot be empty</i>
+              </div>
+            </div>
+            <div class="input-box">
+              <input
+                id="lname"
+                type="text"
+                placeholder=" Last Name"
+                class="lname not-empty"
+                autocomplete="family-name"
+              />
+              <div class="error-box hidden">
+                <img class="error" src="images/icon-error.svg" alt="" />
+                <i class="error-p">Last Name cannot be empty</i>
+              </div>
+            </div>
+            <div class="input-box email-box">
+              <input
+                id="email"
+                type="email"
+                placeholder=" Email Address"
+                class="email not-empty"
+                autocomplete="email"
+              />
+              <div class="error-box email-error-box hidden">
+                <img class="error" src="images/icon-error.svg" alt="" />
+                <i class="error-p">Looks like this is not an email</i>
+              </div>
+            </div>
+            <div class="input-box password-box">
+              <input
+                id="password"
+                type="password"
+                placeholder=" Password "
+                class="password not-empty"
+                autocomplete="current-password"
+              />
+
+              <div class="error-box hidden">
+                <img class="error" src="images/icon-error.svg" alt="" />
+                <i class="error-p">Password cannot be empty</i>
+              </div>
+            </div>
+            <button type="submit">CLAIM YOUR FREE TRIAL</button>
+          </div>
+          <p class="terms-services">
+            By clicking the button, you are agreeing to our
+            <a href="">Terms and Services</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Kolade</a>.
+      </p>
+    </footer>
+    <script>
+      const claimBtn = document.querySelector("button");
+      const inputs = document.querySelectorAll("input");
+      const inputBox = document.querySelectorAll(".input-box");
+      const errorBox = document.querySelectorAll(".error-box");
+      const email = document.querySelector(".email");
+
+      const validateEmail = function (email) {
+        // Regular expression for validating email format
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+      };
+      const emailError = function () {
+        if (validateEmail(email.value.trim())) {
+          document.querySelector(".email-error-box").classList.add("hidden");
+          document.querySelector(".email-box").classList.add("not-empty");
+          document.querySelector(".email-box").classList.remove("empty");
+        } else if (!validateEmail(email.value.trim())) {
+          document.querySelector(".email-error-box").classList.remove("hidden");
+          document.querySelector(".email-box").classList.add("empty");
+          email.placeholder = "email@example/com";
+          email.classList.add("email-box");
+        }
+      };
+      const i = function () {
+        for (let i = 0; i < inputs.length; i++) {
+          if (inputs[i].value.trim() === "") {
+            // console.log(inputs[i]);
+            errorBox[i].classList.remove("hidden");
+            inputBox[i].classList.add("empty");
+            inputs[i].placeholder = "";
+
+            if (inputs[i] === email) {
+              emailError();
+            }
+          } else {
+            errorBox[i].classList.add("hidden");
+            inputBox[i].classList.add("not-empty");
+            inputBox[i].classList.remove("empty");
+          }
+        }
+      };
+      claimBtn.addEventListener("click", i);
+    </script>
+  </body>
+</html>
